@@ -1,0 +1,22 @@
+{% extends 'main.html' %} {% block content %}
+<h1>detail</h1>
+<form method="POST">
+  {% csrf_token %}
+  <label>{{form.cdl_number.label}}</label>
+  {{form.cdl_number}}
+
+  <label>{{form.vehicle_id.label}}</label>
+  {{form.vehicle_id}}
+
+  <label>{{form.co_driver_id.label}}</label>
+  {{form.co_driver_id}}
+
+  <label>{{form.app_version.label}}</label>
+  {{form.app_version}}
+
+  <label>{{form.notes.label}}</label>
+  {{form.notes}}
+
+  <input class="button" type="submit" value="Register" />
+</form>
+{{form.errors}} {% endblock %}

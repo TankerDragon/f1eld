@@ -1,0 +1,22 @@
+{% extends 'main.html' %} {% block content %}
+<h1>Update Vehicle</h1>
+<form method="POST">
+  {% csrf_token %}
+  <label>{{form.unit_number.label}}</label>
+  {{form.unit_number}}
+
+  <label>{{form.model.label}}</label>
+  {{form.model}}
+
+  <label>{{form.vin_number.label}}</label>
+  {{form.vin_number}}
+
+  <label>{{form.is_active.label}}</label>
+  {{form.is_active}}
+
+  <label>{{form.notes.label}}</label>
+  {{form.notes}}
+
+  <input class="button" type="submit" value="Register" />
+</form>
+{{form.errors}} {% endblock %}

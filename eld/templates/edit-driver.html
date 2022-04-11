@@ -1,0 +1,47 @@
+{% extends 'main.html' %} {% block content %}
+<h1>update</h1>
+<div id="register">
+  <form method="POST">
+    {% csrf_token %}
+    <div>
+      <label>{{user_form.username.label}}</label>
+      {{user_form.username}}
+    </div>
+    <div>
+      <label>{{user_form.first_name.label}}</label>
+      {{user_form.first_name}}
+    </div>
+    <div>
+      <label>{{user_form.last_name.label}}</label>
+      {{user_form.last_name}}
+    </div>
+    <div>
+      <label>{{user_form.password1.label}}</label>
+      {{user_form.password1}}
+    </div>
+    <div>
+      <label>{{user_form.password2.label}}</label>
+      {{user_form.password2}}
+    </div>
+    <div>
+      <label>{{detail_form.cdl_number.label}}</label>
+      {{detail_form.cdl_number}}
+    </div>
+    <div>
+      <label>{{detail_form.vehicle_id.label}}</label>
+      {{detail_form.vehicle_id}}
+    </div>
+    <div>
+      <label>{{detail_form.co_driver_id.label}}</label>
+      {{detail_form.co_driver_id}}
+    </div>
+    <div>
+      <label>{{detail_form.notes.label}}</label>
+      {{detail_form.notes}}
+    </div>
+
+    <input class="button" type="submit" value="Apply" />
+  </form>
+</div>
+
+{{form.errors}} {% endblock %}

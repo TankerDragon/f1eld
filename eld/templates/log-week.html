@@ -1,0 +1,48 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+
+<h1>Driver: ???</h1>
+<img src="{% static 'images/graph_day.svg' %}" alt="graph" />
+<table class="drivers-table">
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Status</td>
+      <td>Date</td>
+      <td>Time</td>
+      <td>Location</td>
+      <td>Lat</td>
+      <td>Lng</td>
+      <td>Vehicle</td>
+      <td>Odometer</td>
+      <td>Eng. hours</td>
+      <td>Documents</td>
+      <td>Trailers</td>
+      <td>notes</td>
+      <td>Edit</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for log in logs %}
+    <tr>
+      <td>{{log.id}}</td>
+      <td>{{log.status_code}}</td>
+      <td>{{log.date}}</td>
+      <td>{{log.time}}</td>
+      <td>{{log.loc_name}}</td>
+      <td>{{log.lat}}</td>
+      <td>{{log.lng}}</td>
+      <td>{{log.vehicle_id_id}}</td>
+      <td>{{log.odometer}}</td>
+      <td>{{log.eng_hours}}</td>
+      <td>{{log.document}}</td>
+      <td>{{log.trailer}}</td>
+      <td>{{log.notes}}</td>
+      <td>
+        <a href="#"><i class="fa-solid fa-pen"></i></a>
+      </td>
+    </tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

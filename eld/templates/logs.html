@@ -1,0 +1,100 @@
+{% extends 'main.html' %} {% block content %} {% load static %}
+<div id="navbar">
+  <div class="driver-log-header">
+    <div class="name">
+      <div class="drOffline"></div>
+      <h1>ABDUVOKHID ABDUVALIEV</h1>
+      <div class="lastStatus sleep">Sleep</div>
+    </div>
+    <div class="driver-info">Phone No: +19294520025</div>
+    <div class="driver-info">Driver ID: ABD160921</div>
+  </div>
+  <div class="circles">
+    <div class="chart">
+      <div class="Doughnut">
+        <canvas class="myCanvas" width="100" height="100">
+          Your browser does not support the HTML canvas tag.
+        </canvas>
+        <div class="times">
+          <h1>08:00</h1>
+          <p>BREAK</p>
+        </div>
+      </div>
+      <div class="Doughnut">
+        <canvas class="myCanvas" width="100" height="100">
+          Your browser does not support the HTML canvas tag.
+        </canvas>
+        <div class="times">
+          <h1>11:00</h1>
+          <p>DRIVE</p>
+        </div>
+      </div>
+      <div class="Doughnut">
+        <canvas class="myCanvas" width="100" height="100">
+          Your browser does not support the HTML canvas tag.
+        </canvas>
+        <div class="times">
+          <h1>14:00</h1>
+          <p>SHIFT</p>
+        </div>
+      </div>
+      <div class="Doughnut">
+        <canvas class="myCanvas" width="100" height="100">
+          Your browser does not support the HTML canvas tag.
+        </canvas>
+        <div class="times">
+          <h1>34:00</h1>
+          <p>CYCLE</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="controls">
+    <div>
+      <button>Tracking</button>
+      <button>History</button>
+      <button>Report</button>
+      <button><i class="fas fa-redo-alt"></i></button>
+    </div>
+    <div>
+      <button>Original log</button>
+      <button>Insert Log</button>
+      <button>Delete Log</button>
+    </div>
+    <button id="cancelBtn">Cancel</button>
+    <button id="applyBtn">Apply</button>
+  </div>
+</div>
+<div id="AllUnits"></div>
+
+<div id="table">
+  <div class="tabel-nav">
+    <h1>Logs part</h1>
+    <input type="text" placeholder="Driver name" />
+    <input type="text" placeholder="Location name" />
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Vehicle ID</td>
+        <td>CO Driver ID</td>
+        <td>User ID</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for driver in drivers %}
+      <tr>
+        <td onclick="get({{driver.id}})">{{driver.id}}</td>
+        <td onclick="get({{driver.id}})">{{driver.vehicle_id}}</td>
+        <td onclick="get({{driver.id}})">{{driver.co_driver_id}}</td>
+        <td onclick="get({{driver.id}})">{{driver.user_id}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div id="csrf">{% csrf_token %}</div>
+<script src="{% static 'js/main.js' %}"></script>
+
+{% endblock %}

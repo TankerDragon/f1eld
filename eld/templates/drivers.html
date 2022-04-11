@@ -1,0 +1,50 @@
+{% extends 'main.html' %} {% block content %}
+<div id="table">
+  <div class="driver-edit">
+    <h1>Drivers</h1>
+    <a href="{% url 'new-driver' %}">Add Driver</a>
+  </div>
+  <table class="drivers-table">
+    <thead>
+      <tr>
+        <td>no</td>
+        <td>first name</td>
+        <td>last name</td>
+        <td>driver id</td>
+        <td>username</td>
+        <td>co-driver id</td>
+        <td>vehicle id</td>
+        <td>notes</td>
+        <td>app version</td>
+        <td>date joined</td>
+        <td>last login</td>
+        <td>edit</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for driver in drivers %}
+      <tr>
+        <td>n*</td>
+        <td>{{driver.user.first_name}}</td>
+        <td>{{driver.user.last_name}}</td>
+        <td>{{driver.id}}</td>
+        <td>{{driver.user.username}}</td>
+        <td>{{driver.co_driver_id}}</td>
+        <td>{{driver.vehicle_id}}</td>
+        <td>{{driver.notes}}</td>
+        <td>{{driver.app_version}}</td>
+        <td>{{driver.user.date_joined}}</td>
+        <td>{{driver.user.last_login}}</td>
+        <td>
+          <a href="{% url 'edit-driver' driver.id %}"
+            ><i class="fa-solid fa-pen"></i
+          ></a>
+        </td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

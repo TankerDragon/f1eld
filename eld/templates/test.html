@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="run()">RUN</button>
+    <script>
+        function run() {
+            let url = "f1eld.net/logs/1";
+
+let xhr = new XMLHttpRequest();
+xhr.open("POST", url);
+
+xhr.setRequestHeader("Accept", "application/json");
+xhr.setRequestHeader("Content-Type", "application/json");
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.responseText);
+   }};
+
+let data = `{
+        "status_code": 2,
+        "date": "2022-02-10",
+        "time": "02:54:55",
+        "loc_name": null,
+        "lat": null,
+        "lng": null,
+        "odometer": null,
+        "eng_hours": null,
+        "notes": null,
+        "document": null,
+        "trailer": null,
+        "driver_id": 1,
+        "vehicle_id": null
+    }`;
+
+xhr.send(data);
+        }
+        
+    </script>
+</body>
+</html>

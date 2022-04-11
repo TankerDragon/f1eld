@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(117, 117, 117);
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #changeTable {
+        width: 100%;
+        color: #e0e0e0;
+      }
+      #statusContainer {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 20px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #statusContainer button {
+        min-width: 9%;
+        background: transparent;
+        border: 2px solid #e0e0e0;
+        color: inherit;
+        font-size: inherit;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      #logContainer {
+        width: 85%;
+        margin: auto;
+        margin-bottom: 20px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #logContainer button {
+        min-width: 11%;
+        background: transparent;
+        border: 2px solid #e0e0e0;
+        color: inherit;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: inherit;
+      }
+      #changeTable .forms {
+        width: 100%;
+      }
+
+      #changeTable .form-item {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+      /*
+      #changeTable .sub-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #changeTable .form-item-sub {
+        display: flex;
+        flex: 1 1;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #changeTable .form-item-title {
+        justify-content: flex-end;
+        width: 140px;
+        text-align: right;
+        margin-right: 10px;
+      }
+      .form-item-field {
+        flex: 1 1;
+      }
+      .form-item-field input {
+        width: 97%;
+        background: transparent;
+        border: 2px solid #e0e0e0;
+        padding: 4px 10px;
+        border-radius: 43px;
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+      }
+      #changeTable .form-item-sub input {
+        width: 93%;
+      }
+      #changeTable .form-item button {
+        font-weight: bold;
+        color: #383838;
+        margin-left: 30px;
+        background-color: rgb(98, 196, 1);
+        border: none;
+        padding: 9px 10px;
+        border-radius: 20px;
+      }*/
+    </style>
+  </head>
+  <body>
+    <div id="changeTable">
+      <div id="statusContainer">
+        <button>OFF</button>
+        <button>SB</button>
+        <button>DR</button>
+        <button>ON</button>
+        <button>YM</button>
+        <button>PC</button>
+      </div>
+      <div id="logContainer">
+        <button>Power On</button>
+        <button>Power Off</button>
+        <button>Intermediate</button>
+        <button>Certification</button>
+        <button>Log In</button>
+        <button>Log Out</button>
+      </div>
+      <div class="forms">
+        <div class="form-item">
+          <div class="form-item-sub">
+            <div class="form-item-title">From</div>
+            <div class="form-item-field">
+              <input disabled value="12:00:00 AM" />
+            </div>
+          </div>
+          <div class="form-item-sub">
+            <div class="form-item-title">To</div>
+            <div class="form-item-field">
+              <input disabled value="12:00:00 AM" />
+            </div>
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="sub-container">
+            <div class="form-item-sub">
+              <div class="form-item-title">Lat</div>
+              <div class="form-item-field">
+                <input />
+              </div>
+            </div>
+            <div class="form-item-sub">
+              <div class="form-item-title">Lng</div>
+              <div class="form-item-field">
+                <input />
+              </div>
+            </div>
+          </div>
+
+          <button>Get location</button>
+        </div>
+        <div class="form-item">
+          <div class="form-item-title">Location name</div>
+          <div class="form-item-field">
+            <input />
+          </div>
+
+          <button>Get Coordinates</button>
+        </div>
+        <div class="form-item">
+          <div class="form-item-title">Odometer</div>
+          <div class="form-item-field">
+            <input />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="form-item-title">Eng. hours</div>
+          <div class="form-item-field">
+            <input />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="form-item-title">Note</div>
+          <div class="form-item-field">
+            <input />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="form-item-title">Truck ID</div>
+          <div class="form-item-field">
+            <input />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="form-item-title">Shipping Document</div>
+          <div class="form-item-field">
+            <input />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="form-item-title">Trailer</div>
+          <div class="form-item-field">
+            <input />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  [
+    {
+      id: 6,
+      status_code: 2,
+      date: "2022-03-01",
+      time: "03:00:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 7,
+      status_code: 3,
+      date: "2022-03-01",
+      time: "05:00:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 8,
+      status_code: 5,
+      date: "2022-03-01",
+      time: "05:20:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 9,
+      status_code: 0,
+      date: "2022-03-01",
+      time: "06:00:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 1,
+      status_code: 3,
+      date: "2022-02-28",
+      time: "06:00:00",
+      loc_name: "Afica city",
+      lat: 45.23,
+      lng: -54.23,
+      odometer: 555522,
+      eng_hours: 512.3,
+      notes: "blabblabla",
+      document: "12345safgs",
+      trailer: "112222dfdff",
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 2,
+      status_code: 2,
+      date: "2022-02-28",
+      time: "06:15:12",
+      loc_name: "gdfgdsg",
+      lat: 102.5,
+      lng: 41.2,
+      odometer: 444,
+      eng_hours: 1111.0,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 3,
+      status_code: 0,
+      date: "2022-02-28",
+      time: "14:00:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 4,
+      status_code: 4,
+      date: "2022-02-28",
+      time: "14:30:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 10,
+      status_code: 0,
+      date: "2022-02-28",
+      time: "16:00:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 5,
+      status_code: 1,
+      date: "2022-02-28",
+      time: "20:00:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 11,
+      status_code: 2,
+      date: "2022-03-01",
+      time: "22:00:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+    {
+      id: 12,
+      status_code: 3,
+      date: "2022-03-03",
+      time: "23:00:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: null,
+    },
+    {
+      id: 13,
+      status_code: 2,
+      date: "2022-03-03",
+      time: "23:10:00",
+      loc_name: null,
+      lat: null,
+      lng: null,
+      odometer: null,
+      eng_hours: null,
+      notes: null,
+      document: null,
+      trailer: null,
+      driver_id: 1,
+      vehicle_id: "001",
+    },
+  ];
+</script>

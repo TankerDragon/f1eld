@@ -1,0 +1,38 @@
+{% extends 'main.html' %} {% block content %}
+<div id="table">
+  <div class="driver-edit">
+    <h1>Vehicles</h1>
+    <a href="{% url 'new-vehicle' %}">Add Vehicle</a>
+  </div>
+  <table class="drivers-table">
+    <thead>
+      <tr>
+        <td>Unit Number</td>
+        <td>Model</td>
+        <td>Vin Number</td>
+        <td>Is Active</td>
+        <td>Notes</td>
+        <td>Edit</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for vehicle in vehicles %}
+      <tr>
+        <td>{{vehicle.unit_number}}</td>
+        <td>{{vehicle.model}}</td>
+        <td>{{vehicle.vin_number}}</td>
+        <td>{{vehicle.is_active}}</td>
+        <td>{{vehicle.notes}}</td>
+        <td>
+          <a href="{% url 'edit-vehicle' vehicle.unit_number %}"
+            ><i class="fa-solid fa-pen"></i
+          ></a>
+        </td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        background-color: #b3c1cc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .container {
+        width: 400px;
+        padding: 50px;
+        background-color: #2b6777;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgb(206, 206, 206);
+      }
+      .container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .container img {
+        margin: 1rem;
+      }
+      .container form {
+        width: 100%;
+      }
+      .container form a {
+        text-decoration: none;
+        color: #49bdff;
+      }
+      .container form p {
+        color: #858e9e;
+      }
+      .container form input {
+        width: 100%;
+        margin-top: 25px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        font-size: inherit;
+      }
+      .container .forgot {
+        width: 100%;
+        text-align: right;
+        margin-top: 5px;
+      }
+      .container form button {
+        width: 60%;
+        padding: 10px 0;
+        border-radius: 5px;
+        margin-top: 20px;
+        border: none;
+        background-color: #ff9100;
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      .container form button:hover {
+        cursor: pointer;
+      }
+      .container ul {
+        list-style-type: none;
+        color: rgb(245, 53, 19);
+        text-shadow: 0px 0px 3px white;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="{% static 'images/logo.png' %}" alt="logo" width="150px" />
+      <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <a href="#" class="forgot">Forgot password?</a>
+        <button type="submit">Log in</button>
+      </form>
+
+      <ul>
+        {% for massage in messages %}
+        <li>{{massage}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
